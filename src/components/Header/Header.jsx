@@ -1,36 +1,80 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 const Header = () => {
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleDropdown = () => {
+    setDropdown(!dropdown);
+  };
+
   return (
-    <div>
-        <nav className="bg-gray-100 p-6">
-          <div className="container mx-auto">
-            <div className="flex items-center justify-between">
-              <div className="text-xl font-bold">
-                <Link to="/">Logo</Link>
-              </div>
-              <div className="hidden md:block">
-                <div className="flex items-baseline">
-                  <NavLink
-                    to="/page1"
-                    className="ml-4 px-3 py-2 rounded-md text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-200"
-                    activeClassName="bg-gray-200 text-gray-900"
-                  >
-                    Page 1
-                  </NavLink>
-                  <NavLink
-                    to="/page2"
-                    className="ml-4 px-3 py-2 rounded-md text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-200"
-                    activeClassName="bg-gray-200 text-gray-900"
-                  >
-                    Page 2
-                  </NavLink>
-                </div>
-              </div>
-            </div>
+    <>
+      <nav className="bg-white border-b border-orange-200 dark:bg-orange-600 dark:border-orange-700">
+        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+          <div className="text-xl font-bold text-orange-800 dark:text-white">
+            My App
           </div>
-        </nav>
-    </div>
+          <div className="hidden md:flex space-x-4">
+            <a
+              href="#"
+              className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              Motor Insurance
+            </a>
+            <div className="relative">
+              <button
+                onClick={handleDropdown}
+                className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Health Insurance
+              </button>
+              {dropdown && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-gray-800">
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Health Insurance
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Health AdvantEdge
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Max Protect
+                  </a>
+                </div>
+              )}
+            </div>
+            <a
+              href="#"
+              className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              Item 3
+            </a>
+          </div>
+          <div className="md:hidden flex items-center">
+            <button className="outline-none mobile-menu-button">
+              <svg
+                className="w-6 h-6 text-gray-500 hover:text-gray-800 dark:hover:text-white"
+                x-descriptions="Hamburger"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  className="fill-current"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </>
   )
 }
 
