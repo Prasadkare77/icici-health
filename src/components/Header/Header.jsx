@@ -14,49 +14,34 @@ const Header = () => {
           <div className="text-xl font-bold text-orange-800 dark:text-white">
             My App
           </div>
-          <div className="hidden md:flex space-x-4">
-            <a
-              href="#"
-              className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              Motor Insurance
-            </a>
+          <div className="hidden md:flex space-x-2 justify-center">
+            <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-green-700">Motor Insurance</a>
+
             <div className="relative">
-              <button
-                onClick={handleDropdown}
-                className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-              >
-                Health Insurance
-              </button>
+              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Health Insurance</button>
               {dropdown && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-gray-800">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Health Insurance
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Health AdvantEdge
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Max Protect
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Health Insurance</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Health AdvantEdge</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Max Protect
                   </a>
                 </div>
               )}
             </div>
-            <a
-              href="#"
-              className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              Item 3
-            </a>
+
+            <div className="relative">
+              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Health Insurance</button>
+              {dropdown && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Health Insurance</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Health AdvantEdge</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Max Protect
+                  </a>
+                </div>
+              )}
+            </div>
+           
+            <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"> Item 3 </a>
           </div>
           <div className="md:hidden flex items-center">
             <button className="outline-none mobile-menu-button">
