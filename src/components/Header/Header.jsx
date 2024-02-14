@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
 const Header = () => {
   const [dropdown, setDropdown] = useState(false);
 
@@ -15,7 +14,19 @@ const Header = () => {
             My App
           </div>
           <div className="hidden md:flex space-x-2 justify-center">
-            <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-green-700">Motor Insurance</a>
+            {/* <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-green-700">Motor Insurance</a> */}
+
+            <div className="relative">
+              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Motor Insurance</button>
+              {dropdown && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Motor Insurance</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Car Insurance</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Bike Insurance
+                  </a>
+                </div>
+              )}
+            </div>
 
             <div className="relative">
               <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Health Insurance</button>
@@ -30,7 +41,7 @@ const Header = () => {
             </div>
 
             <div className="relative">
-              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Health Insurance</button>
+              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Travel Insurance</button>
               {dropdown && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
                   <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Health Insurance</a>
@@ -41,7 +52,9 @@ const Header = () => {
               )}
             </div>
            
-            <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"> Item 3 </a>
+          </div>
+          <div>
+            <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"> Login </a>
           </div>
           <div className="md:hidden flex items-center">
             <button className="outline-none mobile-menu-button">
