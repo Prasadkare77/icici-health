@@ -1,74 +1,73 @@
 import React, { useState } from 'react'
+import ilLogo from '../../assets/Header/il-logo.png'
 const Header = () => {
-  const [dropdown, setDropdown] = useState(false);
+  const [isDropdownOpen1, setDropdownOpen1] = useState(false);
+  const [isDropdownOpen2, setDropdownOpen2] = useState(false);
+  const [isDropdownOpen3, setDropdownOpen3] = useState(false);
+  const [isDropdownOpen4, setDropdownOpen4] = useState(false);
 
-  const handleDropdown = () => {
-    setDropdown(!dropdown);
+  const openDropdown1 = () => {
+    setDropdownOpen1(true);
+    setDropdownOpen2(false)
+  };
+  const closeDropdown1 = () => {
+    setDropdownOpen1(false);
+  };
+
+  const openDropdown2 = () => {
+    setDropdownOpen2(true);
+    setDropdownOpen1(false)
+  };
+  const closeDropdown2 = () => {
+    setDropdownOpen2(false);
   };
 
   return (
     <>
-      <nav className=" dark:bg-orange-600 dark:border-orange-700 bg-gray-800 text-white w-full">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <div className="text-xl font-bold text-orange-800 dark:text-white">
-            My App
-          </div>
-          <div className="hidden md:flex space-x-2 justify-center">
-            {/* <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-green-700">Motor Insurance</a> */}
+      <nav className="bg-orange-600 p-4">
+        <div className="container mx-auto flex justify-between items-center">
 
-            <div className="relative">
-              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Motor Insurance</button>
-              {dropdown && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-orange-200">Motor Insurance</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-orange-200">Car Insurance</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-orange-200">Bike Insurance
-                  </a>
+          {/* Logo */}
+        <div className="flex items-center">
+          <img src={ilLogo} alt="Logo" className="w-full mr-2" />
+        </div>
+          
+          
+          <div className="space-x-4">
+            
+            {/* Dropdown Menu */}
+            <div className="relative inline-block text-left">
+            <a href="#" className="text-white" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>Motor Insurance</a>
+              {isDropdownOpen1 && (
+                <div className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>
+                  <div className="py-1" role="none">
+                    <a href="#" className="text-gray-700 hover:dark:text-orange-600 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Motor Insurance</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Car Insurance</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Bike Insurance</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Motor Floater</a>
+                  </div>
                 </div>
               )}
             </div>
-
-            <div className="relative">
-              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Health Insurance</button>
-              {dropdown && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Health Insurance</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Health AdvantEdge</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Max Protect
-                  </a>
+            <div className="relative inline-block text-left">
+              <a href='#' className="text-white focus:outline-none" onMouseEnter={openDropdown2} onMouseLeave={closeDropdown2}>
+                Health Insurance
+              </a>
+              {isDropdownOpen2 && (
+                <div className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="py-1" role="none">
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Health Insurance</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Health AdvantEdge</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Max Protect</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Health Boostert</a>
+                    <a href="#" className="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Personal Protect</a>
+                  </div>
                 </div>
               )}
             </div>
-
-            <div className="relative">
-              <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Travel Insurance</button>
-              {dropdown && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Health Insurance</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Health AdvantEdge</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Max Protect
-                  </a>
-                </div>
-              )}
-            </div>
-           
           </div>
           <div>
-            <a href="#" className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"> Login </a>
-          </div>
-          <div className="md:hidden flex items-center">
-            <button className="outline-none mobile-menu-button">
-              <svg
-                className="w-6 h-6 text-gray-500 hover:text-gray-800 dark:hover:text-white"
-                x-descriptions="Hamburger"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  className="fill-current"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </button>
+            <a href="#" className="text-white">Login</a>
           </div>
         </div>
       </nav>
