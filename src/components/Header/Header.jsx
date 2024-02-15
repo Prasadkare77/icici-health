@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="bg-white border-b border-orange-200 dark:bg-orange-600 dark:border-orange-700">
+      <nav className=" dark:bg-orange-600 dark:border-orange-700 bg-gray-800 text-white w-full">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
           <div className="text-xl font-bold text-orange-800 dark:text-white">
             My App
@@ -20,9 +20,9 @@ const Header = () => {
               <button onClick={handleDropdown} className="text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Motor Insurance</button>
               {dropdown && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-white">
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-white">Motor Insurance</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Car Insurance</a>
-                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-gray-700">Bike Insurance
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-orange-200">Motor Insurance</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-orange-200">Car Insurance</a>
+                  <a href="#" className="block px-4 py-2 text-gray-800 dark:text-black hover:bg-gray-200 dark:hover:bg-orange-200">Bike Insurance
                   </a>
                 </div>
               )}
