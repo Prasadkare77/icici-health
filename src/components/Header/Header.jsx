@@ -118,12 +118,12 @@ const Header = () => {
             </div>
             
             {/* Dropdown Menu */}
-            <div className="space-x-6">
+            <div className="space-x-4 font-semibold">
               <div className="relative inline-block text-left">
-                <a href="#" className="text-white" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>Motor Insurance<i className="fa fa-chevron-right " aria-hidden="true"></i></a>
+                <a href="#" className="text-white" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>Motor Insurance {!isDropdownOpen1 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen1 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>} </a>
                   {isDropdownOpen1 && (
                     <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>
-                      <div className="py-5 text-left pl-24 " role="none">
+                      <div className="py-5 text-left pl-24" role="none">
                         <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Motor Insurance</a>
                         <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Car Insurance</a>
                         <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-2">Bike Insurance</a>
@@ -133,9 +133,9 @@ const Header = () => {
                   )}
               </div>
               <div className="relative inline-block text-left">
-                <a href='#' className="text-white" onMouseEnter={openDropdown2} onMouseLeave={closeDropdown2}>Health Insurance<i className="fa fa-chevron-right " aria-hidden="true"></i></a>
+                <a href='#' className="text-white" onMouseEnter={openDropdown2} onMouseLeave={closeDropdown2}>Health Insurance{!isDropdownOpen2 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen2 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>}</a>
                 {isDropdownOpen2 && (
-                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown2} onMouseLeave={closeDropdown2}>
                     <div className="py-5 text-left pl-24" role="none">
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Health Insurance</a>
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Health AdvantEdge</a>
@@ -149,9 +149,9 @@ const Header = () => {
                 )}
               </div>
               <div className="relative inline-block text-left">
-                <a href='#' className="text-white" onMouseEnter={openDropdown3} onMouseLeave={closeDropdown3}>Travel Insurance</a>
+                <a href='#' className="text-white" onMouseEnter={openDropdown3} onMouseLeave={closeDropdown3}>Travel Insurance{!isDropdownOpen3 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen3 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>}</a>
                 {isDropdownOpen3 && (
-                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown3} onMouseLeave={closeDropdown3}>
                     <div className="py-5 text-left pl-24" role="none">
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Travel Insurance</a>
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Single Trip </a>
@@ -162,9 +162,9 @@ const Header = () => {
                 )}
               </div>
               <div className="relative inline-block text-left">
-                <a href='#' className="text-white" onMouseEnter={openDropdown4} onMouseLeave={closeDropdown4}>Business Insurance</a>
+                <a href='#' className="text-white" onMouseEnter={openDropdown4} onMouseLeave={closeDropdown4}>Business Insurance{!isDropdownOpen4 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen4 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>}</a>
                 {isDropdownOpen4 && (
-                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown4} onMouseLeave={closeDropdown4}>
                     <div className="py-5 text-left pl-24" role="none">
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Business Insurance</a>
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Marine Transit </a>
@@ -179,9 +179,9 @@ const Header = () => {
                 )}
               </div>
               <div className="relative inline-block text-left">
-                <a href='#' className="text-white" onMouseEnter={openDropdown5} onMouseLeave={closeDropdown5}>Other Insurance</a>
+                <a href='#' className="text-white" onMouseEnter={openDropdown5} onMouseLeave={closeDropdown5}>Other Insurance{!isDropdownOpen5 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen5 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>}</a>
                 {isDropdownOpen5 && (
-                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown5} onMouseLeave={closeDropdown5}>
                     <div className="py-5 text-left pl-24" role="none">
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Crop Insurance</a>
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">NRI Insurance</a>
@@ -193,9 +193,9 @@ const Header = () => {
                 )}
               </div>
               <div className="relative inline-block text-left">
-                <a href='#' className="text-white" onMouseEnter={openDropdown6} onMouseLeave={closeDropdown6}>Renewals</a>
+                <a href='#' className="text-white" onMouseEnter={openDropdown6} onMouseLeave={closeDropdown6}>Renewals{!isDropdownOpen6 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen6 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>}</a>
                 {isDropdownOpen6 && (
-                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown6} onMouseLeave={closeDropdown6}>
                     <div className="py-5 text-left pl-24" role="none">
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">All Policy Renewal</a>
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Car Policy</a>
@@ -208,9 +208,9 @@ const Header = () => {
                 )}
               </div>
               <div className="relative inline-block text-left">
-                <a href='#' className="text-white" onMouseEnter={openDropdown7} onMouseLeave={closeDropdown7}>Claims</a>
+                <a href='#' className="text-white" onMouseEnter={openDropdown7} onMouseLeave={closeDropdown7}>Claims{!isDropdownOpen7 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen7 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>}</a>
                 {isDropdownOpen7 && (
-                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                  <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown7} onMouseLeave={closeDropdown7}>
                     <div className="py-5 text-left pl-24" role="none">
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Health Claims</a>
                       <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Motoe Claims</a>
@@ -229,7 +229,7 @@ const Header = () => {
               </div>
             </div>
             <div>
-              <a href="#" className="text-white">Login</a>
+              <a href="#" className="text-white">Login<i className="fa fa-caret-right mx-1" aria-hidden="true"></i></a>
             </div>
           </div>
         </nav>    
