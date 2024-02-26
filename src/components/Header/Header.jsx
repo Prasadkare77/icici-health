@@ -122,7 +122,7 @@ const Header = () => {
               <div className="relative inline-block text-left">
                 <a href="#" className="text-white" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>Motor Insurance {!isDropdownOpen1 && <i className="fa fa-caret-right mx-1" aria-hidden="true"></i>} {isDropdownOpen1 && <i className="fa fa-caret-right mx-1 rotate-90" aria-hidden="true"></i>} </a>
                   {isDropdownOpen1 && (
-                    <div className="origin-top-right absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>
+                    <div className="origin-center absolute right-0 mt-0 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1" onMouseEnter={openDropdown1} onMouseLeave={closeDropdown1}>
                       <div className="py-5 text-left pl-24" role="none">
                         <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-0">Motor Insurance</a>
                         <a href="#" className="text-gray-700 hover:dark:text-orange-600 hover:px-5 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" id="menu-item-1">Car Insurance</a>
