@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import ilLogo from '../../assets/Header/il-logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from 'react-router-dom'
 const Header = () => {
+  const navigate = useNavigate()
   const [isDropdownOpen1, setDropdownOpen1] = useState(false);
   const [isDropdownOpen2, setDropdownOpen2] = useState(false);
   const [isDropdownOpen3, setDropdownOpen3] = useState(false);
@@ -109,12 +111,12 @@ const Header = () => {
       {/* Font Awsome CDN Link for icons */}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-        <nav className="bg-orange-600 p-3">
+        <nav className="h-14 bg-gradient-to-b from-orange-600 to-orange-800 p-3">
           <div className="container mx-auto flex justify-between items-center">
 
             {/* Logo */}
             <div className="flex items-center">
-              <img src={ilLogo} alt="Logo" className="w-full" />
+              <img onClick={navigate('/home')} src={ilLogo} alt="Logo" className="w-full" />
             </div>
             
             {/* Dropdown Menu */}
