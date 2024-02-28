@@ -7,10 +7,10 @@ const Home = () => {
     <div>
       <div className='background'>
         <div className='main-banner-bg w-full h-full' style={{ backgroundImage: `url(${MainBannerBg})` }}>
-          <div className='inline-block left-28'>
-            <h2>Over 4 crore customers have faith in<br/> us because we care.</h2>
+          <div className='inline-block left-0'>
+            <h2 className='mt-5 font-extrabold text-lg'>Over 4 crore customers have faith in<br/> us because we care.</h2>
           </div>
-          <div className='inline-block absolute right-5'>
+          <div className='inline-block'>
             <img src={BannerImg} alt="" />
           </div>
         </div>
