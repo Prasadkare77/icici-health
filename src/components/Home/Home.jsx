@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import MainBannerBg from '../../assets/Home/main-banner-bg.jpg'
 import BannerImg from '../../assets/Home/banner-img.png'
 import classNames from 'classnames'
+import {Tabs,TabsHeader,TabsBody,Tab,TabPanel} from "@material-tailwind/react";
 import Car from '../../assets/Home/Tabs/car.png'
 import Bike from '../../assets/Home/Tabs/bike.png'
 import Health from '../../assets/Home/Tabs/health.png'
@@ -11,30 +12,40 @@ import Renewal from '../../assets/Home/Tabs/renewal.png'
 
 
 const Home = () => {
+  const [active, setActive] = useState("car");
+  const data = [
+    {
+      label: "Car",
+      value: "car",
+      icon: <img src={Car} />,
+    },
+    {
+      label: "Bike",
+      value: "bike",
+      icon: <img src={Bike} />,
+    },
+    {
+      label: "Health",
+      value: "health",
+      icon: <img src={Health} />,
+    },
+    {
+      label: "Travel",
+      value: "travel",
+      icon: <img src={Travel} />,
+    },
+    {
+      label: "Business",
+      value: "business",
+      icon: <img src={Business} />,
+    },
+    {
+      label: "Renewal",
+      value: "renewal",
+      icon: <img src={Renewal} />,
+    },
+  ]
 
-  const tabOptions = [
-  { id: 1, label: 'Car', icon: <img src={Car} /> },
-  { id: 2, label: 'Bike', icon: <img src={Bike} /> },
-  { id: 3, label: 'Health', icon: <img src={Health} /> },
-  { id: 4, label: 'Travel', icon: <img src={Travel} /> },
-  { id: 5, label: 'Business', icon: <img src={Business} /> },
-  { id: 6, label: 'Renewal', icon: <img src={Renewal} /> },
-];
-
-  const [activeTab, setActiveTab] = useState(1);
-
-  const tabClasses = (tabId) =>
-    classNames(
-      'cursor-pointer',
-      'px-4',
-      'py-2',
-      'border-b-2',
-      'border-transparent',
-      { 'border-blue-500': activeTab === tabId },
-      { 'text-blue-500': activeTab === tabId },
-      'flex',
-      'items-center'
-    );
 
   return (
     <div>
@@ -49,17 +60,30 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="tabs flex">
-            {tabOptions.map((tab) => (
-              <div
-                key={tab.id}
-                className={tabClasses(tab.id)}
-                onClick={() => setActiveTab(tab.id)}
-              >
-                <span className="mr-2">{tab.icon}</span>
-                <span>{tab.label}</span>
-              </div>
-            ))}
+          <div className='tabs bg-white shadow w-80 p-5'>
+          <Tabs value={active} onChange={(newValue) => setActive(newValue)}>
+            <TabsHeader>
+              {data.map(({ label, value, icon }) => (
+                <Tab key={value} value={value} onClick={() => setActive(value)}>
+                  
+                    <div className={`flex items-center mx-2 p-2 w-16 h-16 border rounded-md ${active === value ? 'bg-orange-100' : ''}`}>
+                    <div className='flex items-center'> {icon}</div>
+                    
+                  </div>
+                  <div className='mt-2'>
+                    {label} 
+                  </div>
+                </Tab>
+              ))}
+            </TabsHeader>
+            <TabsBody>
+              {data.map(({ value, desc }) => (
+                <TabPanel key={value} value={value}>
+                  {/* {desc} */}
+                </TabPanel>
+              ))}
+            </TabsBody>
+          </Tabs>
           </div>
           <div className='carasole'>
             
