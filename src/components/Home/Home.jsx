@@ -16,6 +16,22 @@ import { Select, Option } from "@material-tailwind/react";
 
 const Home = () => {
   const [active, setActive] = useState("car");
+
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const options = [
+    { value: 'Max Protect', label: 'Max Protect' },
+    { value: 'Health AdvantEdge', label: 'Health AdvantEdge' },
+    { value: 'Arogya Sanjeevani Policy', label: 'Arogya Sanjeevani Policy' },
+    { value: 'Health Booster', label: 'Health Booster' },
+    { value: 'Personal Protect', label: 'Personal Protect' },
+  ];
+
+  const handleOptionSelect = (value) => {
+    setSelectedOption(value);
+    setDropdownOpen(false);
+  };
   
   const data = [
     {
@@ -98,13 +114,24 @@ const Home = () => {
       icon: <img src={Health} />,
       desc: <div className="flex flex-row gap-6 w-auto h-28">
               <div className="relative h-11 w-full min-w-[200px]">
-                  <Select variant="standard" label="">
-                    <Option><input type="radio" className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" checked />Max Protect</Option>
-                    <Option><input type="radio" className="radio radio-error" />orangeHealth AdvantEdge</Option>
-                    <Option><input type="radio" className="radio radio-error" />Aarogya Sanjeevani Policy</Option>
-                    <Option><input type="radio" className="radio radio-error" />Health Booster</Option>
-                    <Option><input type="radio" className="radio radio-error" />Personal Protect</Option>
-                  </Select>
+                <input type="text" readOnly onClick={() => setDropdownOpen(!dropdownOpen)}
+                  value={selectedOption ? options.find((opt) => opt.value === selectedOption).label : 'Select an option'}
+                  className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"/>
+                {dropdownOpen && (
+                  <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div className="py-1">
+                      {options.map((option) => (
+                        <label key={option.value}
+                          className="block px-4 py-2 text-sm text-gray-700 cursor-pointer"
+                          onClick={() => handleOptionSelect(option.value)}>
+                          <input type="radio" name="options" className="mr-2" value={option.value}
+                            checked={selectedOption === option.value} onChange={() => {}}/>
+                          {option.label}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
                   <label
                     className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                     Select Products
@@ -115,7 +142,7 @@ const Home = () => {
                   className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
                 <label
                   className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-black transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Mobile Number<span><sup className='text-red-500'>*</sup></span>
+                  Insure Member<span><sup className='text-red-500'>*</sup></span>
                 </label>
               </div>
               <div className="relative h-11 w-full min-w-[200px]">
