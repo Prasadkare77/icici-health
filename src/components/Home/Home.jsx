@@ -16,9 +16,7 @@ import { Select, Option } from "@material-tailwind/react";
 
 const Home = () => {
   const [active, setActive] = useState("car");
-
   
-
   const data = [
     {
       label: "Car",
@@ -100,18 +98,17 @@ const Home = () => {
       icon: <img src={Health} />,
       desc: <div className="flex flex-row gap-6 w-auto h-28">
               <div className="relative h-11 w-full min-w-[200px]">
-                <Select variant="standard" label="">
-                  <Option>Max Protect</Option>
-                  <Option>Health AdvantEdge</Option>
-                  <Option>Aarogya Sanjeevani Policy, ICICI Lombard</Option>
-                  <Option>Health Booster</Option>
-                  <Option>Personal Protect</Option>
-                </Select>
+                  <Select variant="standard" label="">
+                    <Option><input type="radio" className="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" checked />Max Protect</Option>
+                    <Option><input type="radio" className="radio radio-error" />orangeHealth AdvantEdge</Option>
+                    <Option><input type="radio" className="radio radio-error" />Aarogya Sanjeevani Policy</Option>
+                    <Option><input type="radio" className="radio radio-error" />Health Booster</Option>
+                    <Option><input type="radio" className="radio radio-error" />Personal Protect</Option>
+                  </Select>
                   <label
                     className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                     Select Products
                   </label>
-                
               </div>
               <div className="relative h-11 w-full min-w-[200px]">
                 <input placeholder="Enter Mobile No"
