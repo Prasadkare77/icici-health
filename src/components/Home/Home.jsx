@@ -17,21 +17,37 @@ import { Select, Option } from "@material-tailwind/react";
 const Home = () => {
   const [active, setActive] = useState("car");
 
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdown1, setDropdown1] = useState('Option 1');
+  const [dropdown2, setDropdown2] = useState('Option 1');
 
-  const options = [
-    { value: 'Max Protect', label: 'Max Protect' },
-    { value: 'Health AdvantEdge', label: 'Health AdvantEdge' },
-    { value: 'Arogya Sanjeevani Policy', label: 'Arogya Sanjeevani Policy' },
-    { value: 'Health Booster', label: 'Health Booster' },
-    { value: 'Personal Protect', label: 'Personal Protect' },
-  ];
+  const healthOptions1 = ['Max Protect', 'Health AdvantEdge', 'Arogya Sanjeevani Policy', 'Health Booster', 'Personal Protect'];
 
-  const handleOptionSelect = (value) => {
-    setSelectedOption(value);
-    setDropdownOpen(false);
+
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    mobileNo: '',
+    email: '',
+    pincode: '',
+    yourName: '',
+    // Add more fields as needed
+  });
+  const handleInputClick = () => {
+    setShowForm(true);
   };
+
+  const handleChange = (e) => {
+    const { mobileNo, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [mobileNo]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle the form submission logic here
+    console.log('Form submitted:', formData);
+    // Close the form after submission
+    setShowForm(false);
+  };
+  
   
   const data = [
     {
@@ -114,43 +130,81 @@ const Home = () => {
       icon: <img src={Health} />,
       desc: <div className="flex flex-row gap-6 w-auto h-28">
               <div className="relative h-11 w-full min-w-[200px]">
-                <input type="text" readOnly onClick={() => setDropdownOpen(!dropdownOpen)}
-                  value={selectedOption ? options.find((opt) => opt.value === selectedOption).label : 'Select an option'}
-                  className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"/>
-                {dropdownOpen && (
-                  <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                    <div className="py-1">
-                      {options.map((option) => (
-                        <label key={option.value}
-                          className="block px-4 py-2 text-sm text-gray-700 cursor-pointer"
-                          onClick={() => handleOptionSelect(option.value)}>
-                          <input type="radio" name="options" className="mr-2" value={option.value}
-                            checked={selectedOption === option.value} onChange={() => {}}/>
-                          {option.label}
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                  <label
-                    className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                    Select Products
-                  </label>
-              </div>
-              <div className="relative h-11 w-full min-w-[200px]">
-                <input placeholder="Enter Mobile No"
-                  className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
+                <select value={dropdown1} onChange={(e) => setDropdown1(e.target.value)} className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
+                  {healthOptions1.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
                 <label
-                  className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-black transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Insure Member<span><sup className='text-red-500'>*</sup></span>
+                  className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                  Select Products
                 </label>
               </div>
               <div className="relative h-11 w-full min-w-[200px]">
-                <input placeholder="Enter Email Address"
+                <input placeholder="Add Member"
                   className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
                 <label
                   className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-black transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Email<span><sup className='text-red-500'>*</sup></span>
+                  Insure Members
+                </label>
+              </div>
+              <div className="relative h-11 w-full min-w-[200px] z-0">
+                <input placeholder="Add Details"
+                  className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" 
+                  readOnly onClick={handleInputClick}/>
+                  {showForm && (
+                    <form onSubmit={handleSubmit} className='flex flex-col gap-6 w-72 rounded-md border-2 border-solid z-10 p-10 '>
+                      <div className="relative h-11 w-full min-w-[200px]">
+                        <input placeholder="Mobile No"
+                          class="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                          value={formData.mobileNo}
+                          onChange={handleChange} />
+                        <label
+                          class="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                          Mobile No.<span><sup className='text-red-500'>*</sup></span>
+                        </label>
+                      </div>
+                      <div className="relative h-11 w-full min-w-[200px]">
+                        <input placeholder="Enter Email Address"
+                            class="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                            value={formData.email}
+                            onChange={handleChange} />
+                          <label
+                            class="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                            Email.<span><sup className='text-red-500'>*</sup></span>
+                          </label>
+                      </div>
+                      <div className="relative h-11 w-full min-w-[200px]">
+                        <input placeholder="Enter Pincode"
+                            class="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                            value={formData.pincode}
+                            onChange={handleChange} />
+                          <label
+                            class="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                            Pincode.<span><sup className='text-red-500'>*</sup></span>
+                          </label>
+                      </div>
+                      <div className="relative h-11 w-full min-w-[200px]">
+                        <input placeholder="Enter Your Name"
+                            class="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                            value={formData.yourName}
+                            onChange={handleChange} />
+                          <label
+                            class="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                            Your Name.
+                          </label>
+                      </div>
+                      {/* Add more form fields as needed */}
+                      <div className='ms-40 text-orange-600 text-lg '>
+                        <a href="">Done</a>
+                      </div>
+                    </form>
+                  )}
+                <label
+                  className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-black transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                  Contact Details<span><sup className='text-red-500'>*</sup></span>
                 </label>
               </div>
               <div className="relative h-11 w-full min-w-[200px]">
