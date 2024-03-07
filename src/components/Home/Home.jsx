@@ -215,7 +215,6 @@ const Home = () => {
                 <button className="block bg-orange-500 hover:bg-orange-700 text-white font-semibold py-3 px-6 ms-9 rounded-full">
                   Get qoute
                 </button>
-                <a href="" className='underline block text-orange-500 text-center mt-3'>Recent Quote</a>
               </div>
             </div>
     },
