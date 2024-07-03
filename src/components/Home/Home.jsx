@@ -371,7 +371,7 @@ const Home = () => {
             </div>
           </Tabs>
           </div>
-          <div className='carasole'>
+          <div className='carousel'>
             <Carousel
               className="rounded-xl"
               navigation={({ setActiveIndex, activeIndex, length }) => (
