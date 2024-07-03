@@ -12,6 +12,7 @@ import Renewal from '../../assets/Home/Tabs/renewal.png'
 import { Button } from 'bootstrap';
 
 import { Select, Option } from "@material-tailwind/react";
+import { Carousel } from "@material-tailwind/react";
 
 
 const Home = () => {
@@ -21,6 +22,8 @@ const Home = () => {
   const [dropdown2, setDropdown2] = useState('Option 1');
 
   const healthOptions1 = ['Max Protect', 'Health AdvantEdge', 'Arogya Sanjeevani Policy', 'Health Booster', 'Personal Protect'];
+
+  const travelScopeOptons = ['USA or Canada', 'Asia','Schengen', 'Rest of the world']
 
 
   const [showForm, setShowForm] = useState(false);
@@ -225,7 +228,7 @@ const Home = () => {
       desc: <div className="flex flex-row gap-6 w-auto h-28">
               <div className="relative h-11 w-full min-w-[200px]">
                 <select value={dropdown1} onChange={(e) => setDropdown1(e.target.value)} className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
-                  {healthOptions1.map((option) => (
+                  {travelScopeOptons.map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
@@ -237,12 +240,17 @@ const Home = () => {
                 </label>
               </div>
               <div className="relative h-11 w-full min-w-[200px]">
-                <input placeholder="Add Member"
-                  className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-                <label
-                  className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-black transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Insure Members
-                </label>
+                <select value={dropdown1} onChange={(e) => setDropdown1(e.target.value)} className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
+                    {travelScopeOptons.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  <label
+                    className="after:content[' '] pointer-events-none absolute left-0  -top-2.5 flex h-full w-full select-none !overflow-visible truncate text-sm font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:leading-tight peer-placeholder-shown:text-blue-gray-500 peer-focus:text-sm peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    Trip start Date
+                  </label>
               </div>
               <div className="relative h-11 w-full min-w-[200px] z-0">
                 <input placeholder="Add Details"
@@ -364,7 +372,39 @@ const Home = () => {
           </Tabs>
           </div>
           <div className='carasole'>
-            
+            <Carousel
+              className="rounded-xl"
+              navigation={({ setActiveIndex, activeIndex, length }) => (
+                <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+                  {new Array(length).fill("").map((_, i) => (
+                    <span
+                      key={i}
+                      className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+                        activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
+                      }`}
+                      onClick={() => setActiveIndex(i)}
+                    />
+                  ))}
+                </div>
+              )}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+                alt="image 1"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+                alt="image 2"
+                className="h-full w-full object-cover"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+                alt="image 3"
+                className="h-full w-full object-cover"
+              />
+            </Carousel>
+              
           </div>
         </div>
       </div>
