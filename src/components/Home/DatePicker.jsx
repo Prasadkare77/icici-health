@@ -4,7 +4,7 @@ import Datepicker from 'react-tailwindcss-datepicker'
 const DatePicker = () => {
     const [value, setValue] = useState({
         startDate: new Date(),
-        endDate: new Date().setMonth(11)
+        // endDate: new Date().setMonth(11)
     })
 
     const handleValueChange = (newValue) => {
@@ -17,6 +17,7 @@ const DatePicker = () => {
         <Datepicker 
             value={value} 
             onChange={handleValueChange} 
+            showShortcuts={true} 
         /> 
     </div>
   )
